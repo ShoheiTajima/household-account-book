@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:import url="../layout/app.jsp">
+<c:import url="/WEB-INF/views/layout/app.jsp">
     <c:param name="content">
         <c:if test="${flush != null}">
             <div id= "flush_success">
@@ -47,7 +47,8 @@
                 </c:choose>
             </c:forEach>
         </div>
-        <p><a href="<c:url value='/users/new' />">新規ユーザーの登録</a></p>
+        <p><a href="<c:url value='/users/new' />">新規ユーザーの登録_管理者用</a></p>
+        <p><a href="<c:url value='/users/general/new' />">新規ユーザーの登録</a></p>
     </c:param>
 
 </c:import>
