@@ -18,7 +18,7 @@
                 <c:forEach var="user" items="${users}" varStatus="status">
                     <tr class = "row${status.count % 2}">
                         <td><c:out value="${user.user_id}" /></td>
-                        <td><c:out value="${user.update_at}" /></td>
+                        <td><c:out value="${user.updated_at}" /></td>
                         <td>
                             <c:choose>
                                 <c:when test="${user.delete_flag == 1}">

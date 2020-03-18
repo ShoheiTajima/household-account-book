@@ -36,7 +36,7 @@ public class UserValidator {
         // すでに登録されているユーザーIDとの重複チェック
         if(user_id_duplicate_check_flag) {
             EntityManager em = DBUtil.createEntityManager();
-            long users_count = (long)em.createNamedQuery("checkRegisterdCode", long.class)
+            long users_count = (long)em.createNamedQuery("checkRegisterdCode", Long.class)
                                 .setParameter("user_id", user_id)
                                 .getSingleResult();
             em.close();
