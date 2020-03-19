@@ -12,7 +12,7 @@
         <table id="record_list">
             <tbody>
                 <tr>
-                    <th class="record_date">日付</th>
+                    <th class="record_date">取引日</th>
                     <th class="record_overview">概要</th>
                     <th class="record_tranzaction">取引額</th>
                     <th class="record_action">操作</th>

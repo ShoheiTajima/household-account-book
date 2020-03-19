@@ -45,14 +45,6 @@ public class Record {
     @Column(name = "overview", nullable = false)
     private String overview;
 
-    public String getOverview() {
-        return overview;
-    }
-
-    public void setOverview(String overview) {
-        this.overview = overview;
-    }
-
     public Integer getId() {
         return id;
     }
@@ -83,6 +75,14 @@ public class Record {
 
     public void setTranzaction(String tranzaction) {
         this.tranzaction = tranzaction;
+    }
+
+    public String getOverview() {
+        return overview;
+    }
+
+    public void setOverview(String overview) {
+        this.overview = overview;
     }
 
 }
