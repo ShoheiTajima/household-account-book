@@ -49,18 +49,26 @@ public class LoginFilter implements Filter {
             User e = (User)session.getAttribute("login_user");
 
             if(!servlet_path.equals("/login")) {        // ログイン画面以外について
-                // ログアウトしている状態であれば
-                // ログイン画面にリダイレクト
-                if(e == null) {
-                    ((HttpServletResponse)response).sendRedirect(context_path + "/login");
-                    return;
+
+                if(servlet_path.equals("/general/new")) {  // 初期一般用登録メニューは除外
+
+                } else if(servlet_path.equals("/general/create")) {
+
+                } else {
+                    // ログアウトしている状態であれば
+                    // ログイン画面にリダイレクト
+                    if(e == null) {
+                        ((HttpServletResponse)response).sendRedirect(context_path + "/login");
+                        return;
+                    }
+
+                    // ユーザー管理の機能は管理者のみが閲覧できるようにする
+                    if(servlet_path.matches("/users.*") && e.getAdmin_flag() == 0) {
+                        ((HttpServletResponse)response).sendRedirect(context_path + "/");
+                        return;
+                    }
                 }
 
-                // ユーザー管理の機能は管理者のみが閲覧できるようにする
-                if(servlet_path.matches("/users.*") && e.getAdmin_flag() == 0) {
-                    ((HttpServletResponse)response).sendRedirect(context_path + "/");
-                    return;
-                }
             } else {                                    // ログイン画面について
                 // ログインしているのにログイン画面を表示させようとした場合は
                 // システムのトップページにリダイレクト
@@ -69,6 +77,7 @@ public class LoginFilter implements Filter {
                     return;
                 }
             }
+
         }
 
         chain.doFilter(request, response);
