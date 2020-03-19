@@ -22,7 +22,7 @@
                         <td class="record_date"><fmt:formatDate value='${record.use_date}' pattern='yyyy-MM-dd' /></td>
                         <td class="record_overview">${record.overview}</td>
                         <td class="record_tranzaction">${record.tranzaction}</td>
-                        <td class="record_action"><a href="<c:url value='/records/show?id=${record.id}' />">詳細を見る</a></td>
+                        <td class="record_action"><a href="<c:url value='/records/edit?id=${record.id}' />">詳細を見る</a></td>
                     </tr>
                 </c:forEach>
             </tbody>
