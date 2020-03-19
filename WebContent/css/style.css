@@ -134,3 +134,24 @@ h1 a {
     color: #721c24;
     background-color: #f8d7da;
 }
+
+table#record_list th {
+    font-weight: bold;
+    padding: 10px 2%;
+}
+
+table#recordt_list .record_date {
+    width: 20%;
+    padding: 10px 2%;
+}
+table#record_list .report_overview {
+    width: 20%;
+}
+
+table#record_list .report_tranzaction {
+    width: 37%;
+}
+
+table#record_list .report_action {
+    width: 13%;
+}
