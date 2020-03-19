@@ -46,7 +46,7 @@ public class RecordsEditServlet extends HttpServlet {
             request.getSession().setAttribute("record_id", r.getId());
         }
 
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/records/edit.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/records/edit.jsp");
         rd.forward(request, response);
     }
 
