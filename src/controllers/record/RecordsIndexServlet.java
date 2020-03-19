@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import models.Record;
+import models.User;
 import utils.DBUtil;
 
 /**
@@ -35,18 +36,22 @@ public class RecordsIndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         EntityManager em = DBUtil.createEntityManager();
 
+        User login_user = (User)request.getSession().getAttribute("login_user");
+
         int page;
         try{
             page = Integer.parseInt(request.getParameter("page"));
         } catch(Exception e) {
             page = 1;
         }
-        List<Record> records = em.createNamedQuery("getAllRecords", Record.class)
+        List<Record> records = em.createNamedQuery("getMyAllRecords", Record.class)
+                                    .setParameter("user", login_user)
                                     .setFirstResult(15 * (page - 1))
                                     .setMaxResults(15)
                                     .getResultList();
 
-        long records_count = (long)em.createNamedQuery("getRecordsCount", Long.class)
+        long records_count = (long)em.createNamedQuery("getMyRecordsCount", Long.class)
+                                    .setParameter("user", login_user)
                                     .getSingleResult();
 
         em.close();

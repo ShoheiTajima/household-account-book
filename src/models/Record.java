@@ -22,6 +22,14 @@ import javax.persistence.Table;
     @NamedQuery(
             name = "getRecordsCount",
             query = "SELECT COUNT(r) FROM Record AS r"
+            ),
+    @NamedQuery(
+            name = "getMyAllRecords",
+            query = "SELECT r FROM Record AS r WHERE r.user = :user ORDER BY r.id DESC"
+            ),
+    @NamedQuery(
+            name = "getMyRecordsCount",
+            query = "SELECT COUNT(r) FROM Record AS r WHERE r.user = :user"
             )
 })
 

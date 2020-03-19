@@ -15,7 +15,7 @@
                     <th class="record_date">取引日</th>
                     <th class="record_overview">概要</th>
                     <th class="record_tranzaction">取引額</th>
-                    <th class="record_action">操作</th>
+                    <th class="record_action">編集する</th>
                 </tr>
                 <c:forEach var="record" items="${records}" varStatus="status">
                     <tr class="row${status.count % 2}">
